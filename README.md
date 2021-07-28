@@ -2,6 +2,8 @@
  Trabalho de Sistemas Distribuídos (ECO - UNIFEI), Servidor Python do Sistema de Varejo.
 
 ## Executando o Servidor Localmente:
+- Caso tenha baixado o projeto via GitHub, crie uma virtualenv e importe as bibliotecas do arquivo `requirements.txt` para ela.
+  + O arquivo .zip enviado diretamente pelo autor não necessita dessa etapa
 ### Acessando o Virtual Env e Iniciando o Servidor:
 - Abra o console (VSCode ou CLI de escolha) e acesse a pasta ".\Python-Server\";
   + No VSCode, execute o comando `venv\Scripts\Activate.ps1` para ativar o Virtual Env;
