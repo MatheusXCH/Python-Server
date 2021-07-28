@@ -1,0 +1,165 @@
+swagger: "2.0"
+info:
+  description: This is the swagger file that goes with Python-Server
+  version: "1.0.0"
+  title: Sistema de Varejo - Python-Server
+consumes:
+  - "application/json"
+produces:
+  - "application/json"
+
+basePath: "/api"
+
+# Paths supported by the server application
+paths:
+  /products:
+    get:
+      operationId: "products.read_all"
+      tags:
+        - "Products"
+      summary: "Read all products"
+      description: "Read all products"
+      responses:
+        200:
+          description: Successfully read products list operation
+          schema:
+            type: array
+            items:
+              properties:
+                product_id:
+                  type: integer
+                name:
+                  type: string
+                brand:
+                  type: string
+                price:
+                  type: number
+                stock:
+                  type: integer
+
+    post:
+      operationId: "products.create"
+      tags:
+        - "Products"
+      summary: "Create a product"
+      description: "Create a new product"
+      parameters:
+        - name: product
+          in: body
+          description: Product to create
+          required: True
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+              brand:
+                type: string
+              price:
+                type: number
+              stock:
+                type: integer
+      responses:
+        201:
+          description: Successfully created person operation
+          schema:
+            properties:
+              product_id:
+                type: integer
+              name:
+                type: string
+              brand:
+                type: string
+              price:
+                type: number
+              stock:
+                type: integer
+
+  /product/{product_id}:
+    get:
+      operationId: products.read_one
+      tags:
+        - Products
+      summary: Read one product
+      description: Read one product
+      parameters:
+        - name: product_id
+          in: path
+          description: ID of the product to get
+          type: integer
+          required: True
+      responses:
+        200:
+          description: Successfully read product from products data operation
+          schema:
+            type: object
+            properties:
+              product_id:
+                type: integer
+              name:
+                type: string
+              brand:
+                type: string
+              price:
+                type: number
+              stock:
+                type: integer
+
+    put:
+      operationId: products.update
+      tags:
+        - Products
+      summary: Update a product
+      description: Update a product
+      parameters:
+        - name: product_id
+          in: path
+          description: ID of the person to update
+          type: integer
+          required: True
+        - name: product
+          in: body
+          schema:
+            type: object
+            properties:
+              product_id:
+                type: integer
+              name:
+                type: string
+              brand:
+                type: string
+              price:
+                type: number
+              stock:
+                type: integer
+      responses:
+        200:
+          description: Successfully updated product
+          schema:
+            properties:
+              product_id:
+                type: integer
+              name:
+                type: string
+              brand:
+                type: string
+              price:
+                type: number
+              stock:
+                type: integer
+
+    delete:
+      operationId: products.delete
+      tags:
+        - Products
+      summary: Delete a product from the products list
+      description: Delete a product
+      parameters:
+        - name: product_id
+          in: path
+          type: integer
+          description: ID of the person to delete
+          required: true
+      responses:
+        200:
+          description: Successfully deleted a person

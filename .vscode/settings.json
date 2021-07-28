@@ -3,5 +3,30 @@
     "python.linting.flake8Enabled": true,
     "cSpell.ignoreWords": [
         "sessid"
-    ]
+    ],
+    "[python]": {
+
+        "gitlens.codeLens.symbolScopes": [
+            "!Module"
+        ],
+        "editor.wordBasedSuggestions": false
+    },
+    "python.linting.pylintEnabled": false,
+    "cSpell.words": [
+        "app",
+        "connex",
+        "connexion",
+        "session",
+        "sqla"
+    ],
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "Products",
+            "group": "Sistema de Varejo Python-Server",
+            "database": "${workspaceFolder:Python-Server}/flaskr/products.db"
+        }
+    ],
+    "sqltools.useNodeRuntime": true
 }
